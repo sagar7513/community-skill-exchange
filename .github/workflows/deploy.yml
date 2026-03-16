@@ -29,12 +29,12 @@ jobs:
             fi
             
             echo "Starting docker containers."
-            if [ -n "$(docker compose ps -q --status running)" ]; then
+            if [ -n "$(docker-compose ps -q --status running)" ]; then
                 echo "Containers are running. Restarting with build..."
-                docker compose down
-                docker compose up --build -d
+                docker-compose down
+                docker-compose up --build -d
             else
                 echo "No containers running. Starting fresh..."
-                docker compose up -d
+                docker-compose up -d
             fi
             
