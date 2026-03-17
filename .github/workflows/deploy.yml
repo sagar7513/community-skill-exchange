@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      AWS_REGION: "ap-south-1"
+      AWS_REGION: "us-east-1"
 
     steps:
     - name: Checkout Code
@@ -62,7 +62,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           # Login to ECR on the EC2 host
-          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/v2d4y3y5
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/v2d4y3y5
           
           # Navigate to project directory (where docker-compose.yml lives)
           cd ~/community-skill-exchange
