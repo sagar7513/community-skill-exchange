@@ -63,13 +63,12 @@ jobs:
           aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 116715029140.dkr.ecr.ap-south-1.amazonaws.com
           
           # Navigate to project directory (where docker-compose.yml lives)
-          cd ~/personal-project
-          
-          # Pull latest images
-          docker compose pull
-          
-          # Re-create containers with the new images
-          docker compose up -d
-          
-          # Optional: Clean up old dangling images to save space
-          docker image prune -f
+          cd ~/community-skill-exchange
+          # If repo doesn't exist, clone it; else pull
+            echo "Checking git and pulling changes"
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }}.git .
+            else
+              git pull origin main
+            fi
+          ./scripts/deploy.sh
