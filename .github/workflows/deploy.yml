@@ -29,7 +29,7 @@ jobs:
     # --- BACKEND BUILD & PUSH ---
     - name: Build and Push Backend
       env: 
-        ECR_REGISTRY: "116715029140.dkr.ecr.ap-south-1.amazonaws.com"
+        ECR_REGISTRY: "public.ecr.aws/v2d4y3y5"
         ECR_REPOSITORY: "personal-projects"
         IMAGE_TAG: backend-${{ github.sha }}
       run: |
@@ -41,7 +41,7 @@ jobs:
     # --- FRONTEND BUILD & PUSH ---
     - name: Build and Push Frontend
       env: 
-        ECR_REGISTRY: "116715029140.dkr.ecr.ap-south-1.amazonaws.com"
+        ECR_REGISTRY: "public.ecr.aws/v2d4y3y5"
         ECR_REPOSITORY: "personal-projects"
         IMAGE_TAG: frontend-${{ github.sha }}
       run: |

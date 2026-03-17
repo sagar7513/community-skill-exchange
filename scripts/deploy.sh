@@ -42,7 +42,7 @@ docker pull $FRONTEND_IMAGE
 docker run -d \
   --name frontend_app \
   -p 3000:3000 \
-  -e REACT_APP_API_URL=http://$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4):5000 \
+  -e REACT_APP_API_URL=http://backend_app:5000 \
   --restart always \
   --network my_app_network \
   $FRONTEND_IMAGE
